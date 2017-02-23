@@ -9,6 +9,7 @@ script:
 - docker-compose up -d
 - sleep 5
 - docker-compose ps
-- curl localhost:8080 | grep "Welcome to nginx!"
-- curl localhost:8081 | grep "Welcome to nginx!"
+- curl localhost:8080 | grep "It Works!"
+- curl localhost:8081 | grep "It Works!"
+- curl localhost:8081 | grep "It Works!"
 - docker-compose kill
