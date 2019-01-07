@@ -54,6 +54,8 @@ RUN sed -i "s/listen [0-9]*;/listen ${CONTAINER_PORT};/" $CONF_NGINX_SITE && \
 RUN goss -g /tests/ubuntu/nginx.goss.yaml validate && \
     /aufs_hack.sh
 
+STOPSIGNAL SIGQUIT
+
 # NOTE: intentionally NOT using s6 init as the entrypoint
 # This would prevent container debugging if any of those service crash
 CMD ["/bin/bash", "/run.sh"]

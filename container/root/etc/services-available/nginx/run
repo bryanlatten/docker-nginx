@@ -1,18 +1,3 @@
 #!/usr/bin/execlineb -P
 
-# @see https://github.com/just-containers/s6-overlay/issues/41#issuecomment-99366363
-
-# Nginx uses SIGQUIT to gracefully stop serving traffic.
-trap -x
-{
-  term
-  {
-    foreground
-    {
-      nginx -s quit
-    }
-    echo [sigterm-nginx] graceful shutdown complete
-  }
-}
-
 nginx -g "daemon off;"
